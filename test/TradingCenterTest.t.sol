@@ -63,7 +63,7 @@ contract TradingCenterTest is Test {
     usdc.approve(address(proxyTradingCenter), type(uint256).max);
     vm.stopPrank();
 
-    // user1 approve to proxyTradingCenter
+    // user2 approve to proxyTradingCenter
     vm.startPrank(user2);
     usdt.approve(address(proxyTradingCenter), type(uint256).max);
     usdc.approve(address(proxyTradingCenter), type(uint256).max);
