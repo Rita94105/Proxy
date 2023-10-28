@@ -44,11 +44,12 @@ contract FiatTokenV3{
         _;
     }
 
-    function v3Initialize(bytes32 _merkleRoot) external{
+    function InitializeV3(bytes32 _merkleRoot) external{
         require(_initializedVersion == 2);
         merkleRoot = _merkleRoot;
         _initializedVersion = 3;
     }
+    
 
     function inWhitelist(bytes32[] memory _merkleProof, address _who) internal view returns (bool) {
         bytes32 leaf = keccak256(abi.encodePacked(_who));
