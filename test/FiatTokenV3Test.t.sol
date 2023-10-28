@@ -11,6 +11,7 @@ contract FiatTokenV3Test is Test {
     address proxy = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
     address user1 = makeAddr("user1");
     address user2 = makeAddr("user2");
+    address user3 = makeAddr("user3");
 
     // Merkle
     bytes32[] public leaf;
@@ -28,7 +29,7 @@ contract FiatTokenV3Test is Test {
         merkleRoot = m.getRoot(leaf);
     }
 
-    /*function upgradeToV3() public {
+    function upgradeToV3() public {
         uint256 forkId = vm.createFork("https://mainnet.infura.io/v3/55ecfe07fecb4b83913c0da51b5ad347");
         vm.selectFork(forkId);
         tokenv3 = new FiatTokenV3();
@@ -37,6 +38,21 @@ contract FiatTokenV3Test is Test {
         require(success);
         proxyTokenv3 = FiatTokenV3(proxy);
         assertEq(proxyTokenv3.Version(), "3");
+        proxyTokenv3.v3Initialize(merkleRoot);
         vm.stopPrank();
-    }*/
+
+        vm.startPrank(user1);
+        bytes32[] memory _merkleProof = m.getProof(leaf, 0);
+        proxyTokenv3.mint(_merkleProof, 1);
+        assertEq(proxyTokenv3.balanceOf(user1), 10);
+        proxyTokenv3.transfer(_merkleProof, user2, 5);
+        assertEq(proxyTokenv3.balanceOf(user1), 5);
+        assertEq(proxyTokenv3.balanceOf(user2), 5);
+        vm.stopPrank();
+
+        vm.startPrank(user3);
+        proxyTokenv3.mint(_merkleProof, 1);
+        assertEq(proxyTokenv3.balanceOf(user3), 0);
+        vm.stopPrank();
+    }
 }

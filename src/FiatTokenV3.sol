@@ -71,5 +71,9 @@ contract FiatTokenV3{
     function Version() external pure returns (string memory) {
         return "3";
     }
+
+    function balanceOf(address account) public view virtual returns (uint256) {
+        return _balances[account];
+    }
     
 }
