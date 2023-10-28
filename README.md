@@ -80,9 +80,17 @@ cd proxy
 forge test --mc TradingCenter
 ```
 
+- test result
+
+![TradingCenter_testResut](https://github.com/Rita94105/proxy/blob/master/img/TradingCenter_result.png)
+
 #### 4. test Practice 2
 
 ```
 forge test --mc FiatTokenV3 
 ```
+
+- test result
+
+![FiatTokenV3_testResut](https://github.com/Rita94105/proxy/blob/master/img/FiatTokenV3_result.png)
 
