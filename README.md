@@ -1,6 +1,6 @@
 ## Proxy contract
 
-In the repo, trying to implement and test upgradable proxy contract.**
+In the repo, trying to implement and test upgradable proxy contract.
 
 ### Practice 1
 - UpgradeableProxy.sol
