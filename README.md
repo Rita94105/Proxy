@@ -28,6 +28,9 @@ In the repo, trying to implement and test upgradable proxy contract.
   * upgrade the proxy pointer from V2_1 to V3
   * check contract version()
   * test mint() and transfer()
+  * [USDC proxy contract on etherscan](https://etherscan.io/address/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48#readProxyContract)
+  * [USDC FiatTokenV2_1 contract](https://etherscan.io/address/0xa2327a938febf5fec13bacfb16ae10ecbc4cbdcf#code)
+  
 
 ## Documentation
 
