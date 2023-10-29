@@ -37,7 +37,7 @@ contract FiatTokenV3Test is Test {
     }
 
     function testupgradeToV3() public {
-        uint256 forkId = vm.createFork("https://mainnet.infura.io/v3/55ecfe07fecb4b83913c0da51b5ad347");
+        uint256 forkId = vm.createFork("https://mainnet.infura.io/v3/{id}");
         vm.selectFork(forkId);
         tokenv3 = new FiatTokenV3();
         //get admin address through ADMIN_SLOT
